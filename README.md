@@ -1,2 +1,3 @@
-# neetcode
-C++ solutions for Neetcode.io
+# Neetcode
+
+Solutions for the problem set [NeetCode](https://neetcode.io/) in C++
