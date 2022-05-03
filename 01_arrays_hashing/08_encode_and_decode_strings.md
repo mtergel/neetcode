@@ -41,7 +41,7 @@ public:
                 len = len * 10 + (str[j] - '0');
                 j++;
             }
-            // len = atoi(str.substr(i, j))
+            // len = stoi(str.substr(i, j))
 
             res.push_back(str.substr(j + 1, len));
             i = j + 1 + len;

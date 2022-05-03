@@ -14,9 +14,11 @@ public:
         intervals.push_back(make_pair(position[i], (double)(target - position[i])/(double)(speed[i])));
         sort(intervals.begin(), intervals.end());
 
-        int res = 1; pair<int,double> curr;
+        int res = 1; 
+        pair<int,double> curr;
         curr = intervals[intervals.size() - 1];
-        for (int i = intervals.size()-2; i>=0; i--) {
+
+        for (int i = intervals.size() - 2; i >= 0; i--) {
             if (intervals[i].second > curr.second) {
                 res++;
                 curr = intervals[i];
