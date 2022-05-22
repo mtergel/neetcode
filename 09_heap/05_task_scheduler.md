@@ -30,7 +30,10 @@ public:
         
         // have to choose atleast maxcount rounds
         // maxcount - 1 comes from the last queue not requiring interval
-        // n + 1 comes from 
+        // n + 1 the gaps
+
+        // AB___AB___AB___AB___AB___AB
+
         return max((int)tasks.size(), (maxcount - 1) * (n + 1) + largest);
     }
 };

@@ -10,33 +10,29 @@ public:
             return root;
         }
         
-        stack<TreeNode*> s;
-        TreeNode* tmp;
-        s.push(root);
-        
-        while (!s.empty())
+        queue<TreeNode*> q;
+        q.push(root);
+
+        while (!q.empty())
         {
-            int size = s.size();
+            int size = q.size();
             while (size--)
             {
-                TreeNode* curr = s.top();
-                s.pop();
-                
+                TreeNode *curr = q.front();
+                q.pop();
+
                 if (curr->left)
                 {
-                    s.push(curr->left);
+                    q.push(curr->left);
                 }
-                
+
                 if (curr->right)
                 {
-                    s.push(curr->right);
+                    q.push(curr->right);
                 }
-                
-                tmp = curr->left;
-                curr->left = curr->right;
-                curr->right = tmp;
+
+                swap(curr->left, curr->right);
             }
-            
         }
         
         return root;
