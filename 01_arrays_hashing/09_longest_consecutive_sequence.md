@@ -6,36 +6,19 @@
 class Solution {
 public:
     int longestConsecutive(vector<int>& nums) {
-        int n = nums.size();
-        if (n == 0 || n == 1)
-        {
-            return n;
+        unordered_set<int>s(nums.begin(), nums.end());
+        int longest = 0;
+        for(auto &n: s){
+            //if this is the start of the sequence
+            if(!s.count(n - 1)){
+                int length = 1; 
+                while(s.count(n + length))
+                    ++length;
+                longest = max(longest, length);
+            } 
+
         }
-        
-        set<int> seen;
-        for (int num : nums)
-        {
-            seen.insert(num);
-        }
-        
-        int maxLCS = 1;
-        int currentMax = 1;
-        
-        for (auto it = seen.begin(); it != seen.end(); it++)
-        {
-            int num = *it;
-            if (seen.find(num + 1) != seen.end())
-            {
-                currentMax++;
-                maxLCS = max(maxLCS, currentMax);
-            }
-            else
-            {
-                currentMax = 1;
-            }
-        }
-        
-        return maxLCS;
+        return longest;
         
     }
 };
